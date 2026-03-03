@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navItems = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Partners", path: "/partners" },
-  { label: "Contact", path: "/contact" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations, t } from "@/i18n/translations";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang } = useLanguage();
+  const tr = translations.nav;
+
+  const navItems = [
+    { label: t(tr.home, lang), path: "/" },
+    { label: t(tr.about, lang), path: "/about" },
+    { label: t(tr.partners, lang), path: "/partners" },
+    { label: t(tr.contact, lang), path: "/contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
@@ -37,8 +41,15 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
+          <button
+            onClick={() => setLang(lang === "de" ? "en" : "de")}
+            className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Globe className="w-4 h-4" />
+            {lang === "de" ? "EN" : "DE"}
+          </button>
           <Button variant="hero" size="sm" asChild>
-            <Link to="/contact">Get a Ride</Link>
+            <Link to="/contact">{t(tr.getARide, lang)}</Link>
           </Button>
         </div>
 
@@ -72,8 +83,15 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
+              <button
+                onClick={() => setLang(lang === "de" ? "en" : "de")}
+                className="flex items-center gap-1.5 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Globe className="w-4 h-4" />
+                {lang === "de" ? "English" : "Deutsch"}
+              </button>
               <Button variant="hero" size="sm" asChild>
-                <Link to="/contact" onClick={() => setOpen(false)}>Get a Ride</Link>
+                <Link to="/contact" onClick={() => setOpen(false)}>{t(tr.getARide, lang)}</Link>
               </Button>
             </div>
           </motion.div>

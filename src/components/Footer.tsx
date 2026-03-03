@@ -1,46 +1,52 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations, t } from "@/i18n/translations";
 
-const Footer = () => (
-  <footer className="border-t border-border bg-card py-12">
-    <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h3 className="font-display text-lg font-bold text-gradient mb-3">DrivePro</h3>
-          <p className="text-sm text-muted-foreground">
-            Your trusted ride partner. Connecting you with Uber, Bolt, and more.
-          </p>
-        </div>
-        <div>
-          <h4 className="font-display font-semibold text-foreground mb-3">Navigation</h4>
-          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-            <Link to="/about" className="hover:text-primary transition-colors">About</Link>
-            <Link to="/partners" className="hover:text-primary transition-colors">Partners</Link>
-            <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+const Footer = () => {
+  const { lang } = useLanguage();
+  const tr = translations.footer;
+  const nav = translations.nav;
+
+  return (
+    <footer className="border-t border-border bg-card py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="font-display text-lg font-bold text-gradient mb-3">DrivePro</h3>
+            <p className="text-sm text-muted-foreground">{t(tr.tagline, lang)}</p>
+          </div>
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-3">{t(tr.navigation, lang)}</h4>
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+              <Link to="/" className="hover:text-primary transition-colors">{t(nav.home, lang)}</Link>
+              <Link to="/about" className="hover:text-primary transition-colors">{t(nav.about, lang)}</Link>
+              <Link to="/partners" className="hover:text-primary transition-colors">{t(nav.partners, lang)}</Link>
+              <Link to="/contact" className="hover:text-primary transition-colors">{t(nav.contact, lang)}</Link>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-3">{t(tr.services, lang)}</h4>
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+              <span>{t(tr.cityRides, lang)}</span>
+              <span>{t(tr.airportTransfers, lang)}</span>
+              <span>{t(tr.corporateTravel, lang)}</span>
+              <span>{t(tr.longDistance, lang)}</span>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-3">{t(tr.contact, lang)}</h4>
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+              <span>info@drivepro.com</span>
+              <span>+1 (555) 123-4567</span>
+            </div>
           </div>
         </div>
-        <div>
-          <h4 className="font-display font-semibold text-foreground mb-3">Services</h4>
-          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <span>City Rides</span>
-            <span>Airport Transfers</span>
-            <span>Corporate Travel</span>
-            <span>Long Distance</span>
-          </div>
-        </div>
-        <div>
-          <h4 className="font-display font-semibold text-foreground mb-3">Contact</h4>
-          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <span>info@drivepro.com</span>
-            <span>+1 (555) 123-4567</span>
-          </div>
+        <div className="mt-10 pt-6 border-t border-border text-center text-xs text-muted-foreground">
+          © {new Date().getFullYear()} DrivePro. {t(tr.allRights, lang)}
         </div>
       </div>
-      <div className="mt-10 pt-6 border-t border-border text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} DrivePro. All rights reserved.
-      </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;
