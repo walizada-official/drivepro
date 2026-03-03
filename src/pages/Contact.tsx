@@ -6,17 +6,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations, t } from "@/i18n/translations";
 
 const Contact = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const { lang } = useLanguage();
+  const tr = translations.contact;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      toast({ title: "Message sent!", description: "We'll get back to you shortly." });
+      toast({ title: t(tr.toastTitle, lang), description: t(tr.toastDesc, lang) });
       (e.target as HTMLFormElement).reset();
     }, 1000);
   };
@@ -32,15 +36,12 @@ const Contact = () => {
             className="max-w-3xl mx-auto text-center mb-16"
           >
             <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              Get in <span className="text-gradient">Touch</span>
+              {t(tr.getIn, lang)} <span className="text-gradient">{t(tr.touch, lang)}</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Whether you need a ride or want to partner with us, we'd love to hear from you.
-            </p>
+            <p className="text-lg text-muted-foreground">{t(tr.desc, lang)}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -49,17 +50,15 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="font-display text-2xl font-bold mb-6">Contact Information</h2>
-                <p className="text-muted-foreground mb-8">
-                  Reach out through any channel below or fill out the form and we'll respond within 24 hours.
-                </p>
+                <h2 className="font-display text-2xl font-bold mb-6">{t(tr.contactInfo, lang)}</h2>
+                <p className="text-muted-foreground mb-8">{t(tr.contactInfoDesc, lang)}</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
+                  <h3 className="font-semibold mb-1">{t(tr.email, lang)}</h3>
                   <p className="text-sm text-muted-foreground">info@drivepro.com</p>
                 </div>
               </div>
@@ -68,7 +67,7 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Phone</h3>
+                  <h3 className="font-semibold mb-1">{t(tr.phone, lang)}</h3>
                   <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
                 </div>
               </div>
@@ -77,13 +76,12 @@ const Contact = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Office</h3>
+                  <h3 className="font-semibold mb-1">{t(tr.office, lang)}</h3>
                   <p className="text-sm text-muted-foreground">123 Mobility Street, Tech City</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Form */}
             <motion.form
               onSubmit={handleSubmit}
               initial={{ opacity: 0, x: 30 }}
@@ -94,28 +92,28 @@ const Contact = () => {
             >
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">First Name</label>
-                  <Input placeholder="John" required />
+                  <label className="text-sm font-medium mb-1.5 block">{t(tr.firstName, lang)}</label>
+                  <Input placeholder="Max" required />
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">Last Name</label>
-                  <Input placeholder="Doe" required />
+                  <label className="text-sm font-medium mb-1.5 block">{t(tr.lastName, lang)}</label>
+                  <Input placeholder="Mustermann" required />
                 </div>
               </div>
               <div>
-                <label className="text-sm font-medium mb-1.5 block">Email</label>
-                <Input type="email" placeholder="john@example.com" required />
+                <label className="text-sm font-medium mb-1.5 block">{t(tr.email, lang)}</label>
+                <Input type="email" placeholder="max@beispiel.de" required />
               </div>
               <div>
-                <label className="text-sm font-medium mb-1.5 block">Subject</label>
-                <Input placeholder="How can we help?" required />
+                <label className="text-sm font-medium mb-1.5 block">{t(tr.subject, lang)}</label>
+                <Input placeholder={t(tr.subjectPlaceholder, lang)} required />
               </div>
               <div>
-                <label className="text-sm font-medium mb-1.5 block">Message</label>
-                <Textarea placeholder="Tell us more..." rows={4} required />
+                <label className="text-sm font-medium mb-1.5 block">{t(tr.message, lang)}</label>
+                <Textarea placeholder={t(tr.messagePlaceholder, lang)} rows={4} required />
               </div>
               <Button variant="hero" className="w-full" disabled={loading}>
-                {loading ? "Sending..." : "Send Message"}
+                {loading ? t(tr.sending, lang) : t(tr.sendMessage, lang)}
               </Button>
             </motion.form>
           </div>
