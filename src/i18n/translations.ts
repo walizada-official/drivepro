@@ -49,6 +49,10 @@ export const translations = {
     },
     getStarted: { de: "Jetzt starten", en: "Get Started" },
     learnMore: { de: "Mehr erfahren", en: "Learn More" },
+    fleet: {
+      title: { de: "Unsere Flotte", en: "Our Fleet" },
+      desc: { de: "Moderne, gepflegte Fahrzeuge für Ihren Komfort und Ihre Sicherheit.", en: "Modern, well-maintained vehicles for your comfort and safety." },
+    },
   },
 
   // About page

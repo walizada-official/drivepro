@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Car, Clock, Shield, Star } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import taxi1 from "@/assets/taxi-1.jpeg";
+import taxi2 from "@/assets/taxi-2.jpg";
+import taxi3 from "@/assets/taxi-3.jpg";
+import taxi4 from "@/assets/taxi-4.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 
@@ -120,8 +124,46 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Fleet Showcase */}
       <section className="py-24 bg-card">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              {t(tr.fleet.title, lang)}
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              {t(tr.fleet.desc, lang)}
+            </p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[taxi1, taxi2, taxi3, taxi4].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group relative overflow-hidden rounded-xl border border-border"
+              >
+                <img
+                  src={img}
+                  alt={`DrivePro Taxi ${i + 1}`}
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
