@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
+import driveProLogo from "@/assets/drivepro-logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -22,8 +23,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="font-display text-xl font-bold tracking-tight">
-          <span className="text-gradient">DrivePro</span>
+        <Link to="/" className="flex items-center">
+          <img src={driveProLogo} alt="DrivePro Logo" className="h-10" />
         </Link>
 
         {/* Desktop */}
