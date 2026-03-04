@@ -15,7 +15,7 @@
     --popover: 220 18% 10%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 210 100% 56%;
+    --primary: 43 100% 41%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 16% 16%;
@@ -24,7 +24,7 @@
     --muted: 220 14% 14%;
     --muted-foreground: 220 10% 55%;
 
-    --accent: 170 80% 50%;
+    --accent: 35 100% 50%;
     --accent-foreground: 220 20% 7%;
 
     --destructive: 0 84% 60%;
@@ -32,17 +32,17 @@
 
     --border: 220 16% 18%;
     --input: 220 16% 18%;
-    --ring: 210 100% 56%;
+    --ring: 43 100% 41%;
 
     --radius: 0.75rem;
 
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 56%), hsl(170 80% 50%));
+    --gradient-primary: linear-gradient(135deg, hsl(43 100% 41%), hsl(35 100% 50%));
     --gradient-dark: linear-gradient(180deg, hsl(220 20% 7%), hsl(220 20% 4%));
     --gradient-card: linear-gradient(135deg, hsl(220 18% 12%), hsl(220 18% 8%));
-    --shadow-glow: 0 0 40px -10px hsl(210 100% 56% / 0.3);
+    --shadow-glow: 0 0 40px -10px hsl(43 100% 41% / 0.3);
     --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
   }
 }
