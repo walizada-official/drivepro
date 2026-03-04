@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
+import driveProLogo from "@/assets/drivepro-logo.png";
 
 const Footer = () => {
   const { lang } = useLanguage();
@@ -12,7 +13,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-display text-lg font-bold text-gradient mb-3">DrivePro</h3>
+            <img src={driveProLogo} alt="DrivePro Logo" className="h-10 mb-3" />
             <p className="text-sm text-muted-foreground">{t(tr.tagline, lang)}</p>
           </div>
           <div>
