@@ -1,12 +1,14 @@
-const CACHE_NAME = "drivepro-cache-v1";
+const CACHE_NAME = "drivepro-cache-v2";
+const BASE_PATH = new URL(self.registration.scope).pathname;
+const withBase = (path) => `${BASE_PATH}${path}`;
 const CORE_ASSETS = [
-  "/",
-  "/index.html",
-  "/manifest.json",
-  "/favicon/favicon-32.png",
-  "/favicon/favicon-180.png",
-  "/icons/icon-192.png",
-  "/icons/icon-512.png"
+  BASE_PATH,
+  withBase("index.html"),
+  withBase("manifest.json"),
+  withBase("favicon/favicon-32.png"),
+  withBase("favicon/favicon-180.png"),
+  withBase("icons/icon-192.png"),
+  withBase("icons/icon-512.png")
 ];
 
 self.addEventListener("install", (event) => {
@@ -42,7 +44,7 @@ self.addEventListener("fetch", (event) => {
   if (event.request.mode === "navigate") {
     event.respondWith(
       fetch(event.request).catch(() =>
-        caches.match("/index.html").then((response) => response || Response.error())
+        caches.match(withBase("index.html")).then((response) => response || Response.error())
       )
     );
     return;
