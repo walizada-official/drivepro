@@ -1,4 +1,4 @@
-const CACHE_NAME = "drivepro-cache-v2";
+const CACHE_NAME = "drivepro-cache-v3";
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const withBase = (path) => `${BASE_PATH}${path}`;
 const CORE_ASSETS = [
