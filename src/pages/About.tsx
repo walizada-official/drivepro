@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { Shield, Users, Zap, Award } from "lucide-react";
-import aboutTeam from "@/assets/about-team.jpg";
+import aboutTeam from "@/assets/profile2jpg.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 
@@ -42,7 +42,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img src={aboutTeam} alt="DrivePro team" className="rounded-xl shadow-card w-full object-cover aspect-square" />
+              <img src={aboutTeam} alt="DrivePro team" className="rounded-xl shadow-card w-full object-cover aspect-square" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}

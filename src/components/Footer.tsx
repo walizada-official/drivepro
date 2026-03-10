@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <img src={driveProLogo} alt="DrivePro Logo" className="h-10 mb-3" />
+            <img src={driveProLogo} alt="DrivePro Logo" className="h-16 mb-3" />
             <p className="text-sm text-muted-foreground">{t(tr.tagline, lang)}</p>
           </div>
           <div>
@@ -38,7 +38,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-foreground mb-3">{t(tr.contact, lang)}</h4>
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <span>info@drivepro.com</span>
-              <span>+1 (555) 123-4567</span>
+              <span>+49 170 4954671</span>
             </div>
           </div>
         </div>

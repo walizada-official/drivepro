@@ -68,7 +68,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">{t(tr.phone, lang)}</h3>
-                  <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+                  <p className="text-sm text-muted-foreground">+49 170 4954671</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -77,7 +77,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">{t(tr.office, lang)}</h3>
-                  <p className="text-sm text-muted-foreground">123 Mobility Street, Tech City</p>
+                  <p className="text-sm text-muted-foreground">Köln, Deutschland</p>
                 </div>
               </div>
             </motion.div>

@@ -17,8 +17,8 @@ const Index = () => {
 
   const stats = [
     { value: "10K+", label: t(tr.stats.happyRiders, lang) },
-    { value: "500+", label: t(tr.stats.proDrivers, lang) },
-    { value: "15+", label: t(tr.stats.cities, lang) },
+    { value: "30+", label: t(tr.stats.proDrivers, lang) },
+    { value: "20+", label: t(tr.stats.cities, lang) },
     { value: "4.9", label: t(tr.stats.avgRating, lang) },
   ];
 
@@ -58,9 +58,7 @@ const Index = () => {
                   {t(tr.bookARide, lang)} <ArrowRight className="ml-1 w-4 h-4" />
                 </Link>
               </Button>
-              <Button variant="heroOutline" size="lg" asChild>
-                <Link to="/partners">{t(tr.ourPartners, lang)}</Link>
-              </Button>
+      
             </div>
           </motion.div>
         </div>
